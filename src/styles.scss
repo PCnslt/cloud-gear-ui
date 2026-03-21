@@ -1,0 +1,239 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { 
+  height: 100%; 
+}
+
+body { 
+  margin: 0; 
+  font-family: Roboto, "Helvetica Neue", sans-serif; 
+  background-color: #f5f5f5;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Utility classes */
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.mt-1 { margin-top: 0.25rem; }
+.mt-2 { margin-top: 0.5rem; }
+.mt-3 { margin-top: 1rem; }
+.mt-4 { margin-top: 1.5rem; }
+.mt-5 { margin-top: 3rem; }
+
+.mb-1 { margin-bottom: 0.25rem; }
+.mb-2 { margin-bottom: 0.5rem; }
+.mb-3 { margin-bottom: 1rem; }
+.mb-4 { margin-bottom: 1.5rem; }
+.mb-5 { margin-bottom: 3rem; }
+
+.ml-1 { margin-left: 0.25rem; }
+.ml-2 { margin-left: 0.5rem; }
+.ml-3 { margin-left: 1rem; }
+.ml-4 { margin-left: 1.5rem; }
+.ml-5 { margin-left: 3rem; }
+
+.mr-1 { margin-right: 0.25rem; }
+.mr-2 { margin-right: 0.5rem; }
+.mr-3 { margin-right: 1rem; }
+.mr-4 { margin-right: 1.5rem; }
+.mr-5 { margin-right: 3rem; }
+
+.p-1 { padding: 0.25rem; }
+.p-2 { padding: 0.5rem; }
+.p-3 { padding: 1rem; }
+.p-4 { padding: 1.5rem; }
+.p-5 { padding: 3rem; }
+
+.full-width {
+  width: 100%;
+}
+
+.half-width {
+  width: 50%;
+}
+
+.quarter-width {
+  width: 25%;
+}
+
+/* Cloud Gear theme colors */
+:root {
+  --cloudgear-primary: #1976d2;
+  --cloudgear-secondary: #26a69a;
+  --cloudgear-accent: #ff4081;
+  --cloudgear-warn: #f44336;
+  --cloudgear-success: #4caf50;
+  --cloudgear-info: #2196f3;
+  --cloudgear-light: #f5f5f5;
+  --cloudgear-dark: #212121;
+  --cloudgear-card: #ffffff;
+  --cloudgear-border: #e0e0e0;
+}
+
+/* Card styles */
+.cloudgear-card {
+  background: var(--cloudgear-card);
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.cloudgear-card-header {
+  border-bottom: 1px solid var(--cloudgear-border);
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+}
+
+.cloudgear-card-title {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: var(--cloudgear-dark);
+  margin: 0;
+}
+
+.cloudgear-card-subtitle {
+  font-size: 0.875rem;
+  color: #666;
+  margin: 0.25rem 0 0 0;
+}
+
+/* Button styles */
+.cloudgear-button-primary {
+  background-color: var(--cloudgear-primary) !important;
+  color: white !important;
+}
+
+.cloudgear-button-secondary {
+  background-color: var(--cloudgear-secondary) !important;
+  color: white !important;
+}
+
+.cloudgear-button-accent {
+  background-color: var(--cloudgear-accent) !important;
+  color: white !important;
+}
+
+/* Status badges */
+.status-badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.status-running {
+  background-color: #e8f5e9;
+  color: #2e7d32;
+}
+
+.status-stopped {
+  background-color: #fff3e0;
+  color: #ef6c00;
+}
+
+.status-pending {
+  background-color: #e3f2fd;
+  color: #1565c0;
+}
+
+.status-terminated {
+  background-color: #f5f5f5;
+  color: #616161;
+}
+
+.status-error {
+  background-color: #ffebee;
+  color: #c62828;
+}
+
+/* Pricing styles */
+.price-breakdown {
+  background-color: #f9f9f9;
+  border-left: 4px solid var(--cloudgear-primary);
+  padding: 1rem;
+  border-radius: 4px;
+  margin: 1rem 0;
+}
+
+.price-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #eee;
+}
+
+.price-item:last-child {
+  border-bottom: none;
+  font-weight: bold;
+  color: var(--cloudgear-primary);
+}
+
+.price-label {
+  color: #666;
+}
+
+.price-value {
+  font-weight: 500;
+}
+
+/* Loading spinner */
+.loading-spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px;
+}
+
+/* Responsive utilities */
+@media (max-width: 768px) {
+  .mobile-hidden {
+    display: none !important;
+  }
+  
+  .mobile-full-width {
+    width: 100% !important;
+  }
+  
+  .mobile-stack {
+    flex-direction: column !important;
+  }
+}
+
+@media (min-width: 769px) {
+  .desktop-hidden {
+    display: none !important;
+  }
+}

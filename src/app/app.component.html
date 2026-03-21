@@ -1,0 +1,128 @@
+<mat-toolbar color="primary" class="cloudgear-toolbar">
+  <button mat-icon-button (click)="goHome()" class="logo-button">
+    <mat-icon>cloud</mat-icon>
+    <span class="logo-text">Cloud-Gear</span>
+  </button>
+  
+  <span class="spacer"></span>
+  
+  <!-- Navigation for authenticated users -->
+  <nav *ngIf="isAuthenticated" class="nav-links">
+    <button mat-button (click)="goToDashboard()">
+      <mat-icon>dashboard</mat-icon>
+      Dashboard
+    </button>
+    <button mat-button (click)="goToCompute()">
+      <mat-icon>computer</mat-icon>
+      Compute
+    </button>
+    <button mat-button (click)="goToBilling()">
+      <mat-icon>account_balance_wallet</mat-icon>
+      Billing
+    </button>
+    <button mat-button (click)="goToPricing()">
+      <mat-icon>attach_money</mat-icon>
+      Pricing
+    </button>
+  </nav>
+  
+  <!-- Navigation for unauthenticated users -->
+  <nav *ngIf="!isAuthenticated" class="nav-links">
+    <button mat-button routerLink="/pricing">
+      <mat-icon>attach_money</mat-icon>
+      Pricing
+    </button>
+    <button mat-button routerLink="/login">
+      <mat-icon>login</mat-icon>
+      Login
+    </button>
+    <button mat-button routerLink="/register" color="accent">
+      <mat-icon>person_add</mat-icon>
+      Sign Up
+    </button>
+  </nav>
+  
+  <span class="spacer"></span>
+  
+  <!-- User menu for authenticated users -->
+  <div *ngIf="isAuthenticated" class="user-menu">
+    <button mat-button [matMenuTriggerFor]="userMenu" class="user-button">
+      <mat-icon>account_circle</mat-icon>
+      <span class="user-email">{{ userEmail }}</span>
+      <mat-icon>arrow_drop_down</mat-icon>
+    </button>
+    <mat-menu #userMenu="matMenu">
+      <button mat-menu-item disabled>
+        <mat-icon>person</mat-icon>
+        <span>{{ userEmail }}</span>
+      </button>
+      <mat-divider></mat-divider>
+      <button mat-menu-item routerLink="/dashboard">
+        <mat-icon>dashboard</mat-icon>
+        <span>Dashboard</span>
+      </button>
+      <button mat-menu-item routerLink="/compute">
+        <mat-icon>computer</mat-icon>
+        <span>Compute Resources</span>
+      </button>
+      <button mat-menu-item routerLink="/billing">
+        <mat-icon>account_balance_wallet</mat-icon>
+        <span>Billing</span>
+      </button>
+      <mat-divider></mat-divider>
+      <button mat-menu-item (click)="logout()">
+        <mat-icon>logout</mat-icon>
+        <span>Logout</span>
+      </button>
+    </mat-menu>
+  </div>
+</mat-toolbar>
+
+<main class="main-content">
+  <router-outlet></router-outlet>
+</main>
+
+<footer class="cloudgear-footer">
+  <div class="footer-content">
+    <div class="footer-section">
+      <h3>Cloud-Gear.com</h3>
+      <p>Transparent cloud services with AWS cost + 20% markup.</p>
+      <p>No hidden fees, no surprises.</p>
+    </div>
+    
+    <div class="footer-section">
+      <h4>Products</h4>
+      <ul>
+        <li>Compute (EC2)</li>
+        <li>Storage (Coming Soon)</li>
+        <li>Database (Coming Soon)</li>
+      </ul>
+    </div>
+    
+    <div class="footer-section">
+      <h4>Support</h4>
+      <ul>
+        <li><a routerLink="/pricing">Pricing</a></li>
+        <li><a href="#">Documentation</a></li>
+        <li><a href="#">Contact Us</a></li>
+      </ul>
+    </div>
+    
+    <div class="footer-section">
+      <h4>Legal</h4>
+      <ul>
+        <li><a href="#">Terms of Service</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Service Level Agreement</a></li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="footer-bottom">
+    <p>&copy; 2026 Cloud-Gear.com. All rights reserved.</p>
+    <p class="transparency-note">
+      <mat-icon>info</mat-icon>
+      Transparent pricing: We show AWS costs + 20% markup. No hidden fees.
+    </p>
+  </div>
+</footer>
