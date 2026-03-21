@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+﻿import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -37,6 +37,9 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 
 // Application Components
 import { AppComponent } from './app.component';
+import { LoginComponent } from './components/login.component';
+import { ComputeListComponent } from './pages/compute/compute-list/compute-list.component';
+import { ComputeCreateComponent } from './pages/compute/compute-create/compute-create.component';
 import { AppRoutingModule } from './app-routing.module';
 
 // Services
@@ -55,6 +58,10 @@ import { AuthGuard } from './guards/auth.guard';
 
 @NgModule({
   declarations: [
+    AppComponent,
+    LoginComponent,
+    ComputeListComponent,
+    ComputeCreateComponent,
     AppComponent
     // Other components will be declared here as we create them
   ],
