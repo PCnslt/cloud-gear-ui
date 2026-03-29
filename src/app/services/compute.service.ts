@@ -1,4 +1,4 @@
-﻿import { Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
@@ -57,43 +57,43 @@ export class ComputeService {
 
   // Get all compute resources for the current user
   getComputeResources(): Observable<ComputeResource[]> {
-    return this.http.get<ComputeResource[]>(\\/resources/compute\);
+    return this.http.get<ComputeResource[]>(`${this.apiUrl}/resources/compute`);
   }
 
   // Get a specific compute resource
   getComputeResource(id: number): Observable<ComputeResource> {
-    return this.http.get<ComputeResource>(\\/resources/compute/\\);
+    return this.http.get<ComputeResource>(`${this.apiUrl}/resources/compute/${id}`);
   }
 
   // Create a new compute resource
   createComputeResource(request: ComputeCreateRequest): Observable<ComputeResource> {
-    return this.http.post<ComputeResource>(\\/resources/compute\, request);
+    return this.http.post<ComputeResource>(`${this.apiUrl}/resources/compute`, request);
   }
 
   // Start a compute resource
   startComputeResource(id: number): Observable<ComputeResource> {
-    return this.http.put<ComputeResource>(\\/resources/compute/\/start\, {});
+    return this.http.put<ComputeResource>(`${this.apiUrl}/resources/compute/${id}/start`, {});
   }
 
   // Stop a compute resource
   stopComputeResource(id: number): Observable<ComputeResource> {
-    return this.http.put<ComputeResource>(\\/resources/compute/\/stop\, {});
+    return this.http.put<ComputeResource>(`${this.apiUrl}/resources/compute/${id}/stop`, {});
   }
 
   // Terminate a compute resource
   terminateComputeResource(id: number): Observable<void> {
-    return this.http.delete<void>(\\/resources/compute/\\);
+    return this.http.delete<void>(`${this.apiUrl}/resources/compute/${id}`);
   }
 
-  // Get price estimate
+  // Get price estimate for compute specs
   getPriceEstimate(region: string, instanceType: string, os: string, diskSize: number): Observable<PriceEstimate> {
     return this.http.get<PriceEstimate>(
-      \\/resources/compute/pricing/estimate?region=\&instanceType=\&os=\&diskSize=\\
+      `${this.apiUrl}/resources/compute/pricing/estimate?region=${region}&instanceType=${instanceType}&os=${os}&diskSize=${diskSize}`
     );
   }
 
-  // Get pricing options
+  // Get pricing options (regions, instance types, OS, disk sizes)
   getPricingOptions(): Observable<PricingOptions> {
-    return this.http.get<PricingOptions>(\\/resources/compute/pricing/options\);
+    return this.http.get<PricingOptions>(`${this.apiUrl}/resources/compute/pricing/options`);
   }
 }

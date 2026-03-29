@@ -1,4 +1,4 @@
-﻿import { NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -35,38 +35,21 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 
-// Application Components
 import { AppComponent } from './app.component';
-import { LoginComponent } from './components/login.component';
-import { ComputeListComponent } from './pages/compute/compute-list/compute-list.component';
-import { ComputeCreateComponent } from './pages/compute/compute-create/compute-create.component';
 import { AppRoutingModule } from './app-routing.module';
 
 // Services
 import { AuthService } from './services/auth.service';
-import { ResourceService } from './services/resource.service';
 import { ComputeService } from './services/compute.service';
-import { PricingService } from './services/pricing.service';
-import { BillingService } from './services/billing.service';
 
-// Interceptors
+// Simple interceptor
 import { AuthInterceptor } from './interceptors/auth.interceptor';
-import { ErrorInterceptor } from './interceptors/error.interceptor';
-
-// Guards
-import { AuthGuard } from './guards/auth.guard';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    LoginComponent,
-    ComputeListComponent,
-    ComputeCreateComponent,
     AppComponent
-    // Other components will be declared here as we create them
   ],
   imports: [
-    // Angular Modules
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
@@ -74,7 +57,7 @@ import { AuthGuard } from './guards/auth.guard';
     ReactiveFormsModule,
     AppRoutingModule,
     
-    // Angular Material Modules
+    // Angular Material
     MatToolbarModule,
     MatButtonModule,
     MatIconModule,
@@ -106,29 +89,13 @@ import { AuthGuard } from './guards/auth.guard';
     MatSidenavModule
   ],
   providers: [
-    // Services
     AuthService,
-    ResourceService,
     ComputeService,
-    PricingService,
-    BillingService,
-    
-    // Guards
-    AuthGuard,
-    
-    // Interceptors
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,
       multi: true
     },
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: ErrorInterceptor,
-      multi: true
-    },
-    
-    // Datepicker provider
     MatDatepickerModule
   ],
   bootstrap: [AppComponent]
